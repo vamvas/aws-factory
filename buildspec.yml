@@ -4,7 +4,7 @@ phases:
     runtime-versions:
       python: 3.11
     commands:
-      - pip install boto3 joblib
+      - pip install boto3 joblib scikit-learn
   build:
     commands:
       - zip -r deployment-package.zip lambda_function.py
