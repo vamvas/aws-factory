@@ -7,12 +7,15 @@ from io import BytesIO
 s3 = boto3.client('s3')
 
 def download_model():
-    bucket = 'trained-ml-models-repository'
-    key = 'models/decision_tree_model.pkl'
-    response = s3.get_object(Bucket=bucket, Key=key)
+    response = s3.get_object(
+        Bucket='trained-ml-models-repository',
+        Key='models/decision_tree_model.pkl')
+    
     model_str = response['Body'].read()
     model = joblib.load(BytesIO(model_str))
+
     return model
+
 
 
 
