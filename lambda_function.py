@@ -11,8 +11,8 @@ def download_model():
     key = 'models/decision_tree_model.pkl'
     response = s3.get_object(Bucket=bucket, Key=key)
     model_str = response['Body'].read()
-    # model = joblib.load(BytesIO(model_str))
-    return model_str
+    model = joblib.load(BytesIO(model_str))
+    return model
 
 
 
