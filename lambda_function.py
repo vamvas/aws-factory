@@ -1,7 +1,7 @@
 # lambda_function.py
 import json
 import boto3
-import joblib
+# import joblib
 from io import BytesIO
 
 s3 = boto3.client('s3')
@@ -12,9 +12,9 @@ def download_model():
         Key='models/decision_tree_model.pkl')
     
     model_str = response['Body'].read()
-    model = joblib.load(BytesIO(model_str))
+    # model = joblib.load(BytesIO(model_str))
 
-    return model
+    return model_str
 
 
 
